@@ -1,6 +1,6 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
-if( !\Bitrix\Main\Loader::includeModule('collected.easycart') )
+if( !\Bitrix\Main\Loader::includeModule('kit.easycart') )
 {
 	ShowError( GetMessage('RS.EC.ERROR_EC_NOT_INSTALLED') );
 	return;
@@ -21,6 +21,6 @@ if( !\Bitrix\Main\Loader::includeModule('sale') )
 	return;
 }
 
-$arParams['SERVICE_URL'] = COption::GetOptionString('collected.easycart', 'service_url', '');
+$arParams['SERVICE_URL'] = COption::GetOptionString('kit.easycart', 'service_url', '');
 
 $this->IncludeComponentTemplate();

@@ -79,7 +79,7 @@ if( $arCurrentValues['USE_BASKET']=='Y' )
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////// FAVORITE
-if( IsModuleInstalled('collected.favorite') )
+if( IsModuleInstalled('kit.favorite') )
 {
 	$arComponentParameters['PARAMETERS']['USE_FAVORITE'] = array(
 		'PARENT' => 'BASE',

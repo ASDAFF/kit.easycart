@@ -2,9 +2,9 @@
 global $MESS;
 IncludeModuleLangFile(__FILE__);
 
-Class collected_easycart extends CModule
+Class kit_easycart extends CModule
 {
-    var $MODULE_ID = 'collected.easycart';
+    var $MODULE_ID = 'kit.easycart';
 	var $MODULE_VERSION;
 	var $MODULE_VERSION_DATE;
 	var $MODULE_NAME;
@@ -12,7 +12,7 @@ Class collected_easycart extends CModule
 	var $MODULE_CSS;
 	var $MODULE_GROUP_RIGHTS = 'Y';
 
-	function collected_easycart()
+	function kit_easycart()
 	{
 		$arModuleVersion = array();
 
@@ -38,26 +38,26 @@ Class collected_easycart extends CModule
 	function InstallDB()
 	{
 		global $DB, $DBType, $APPLICATION;
-		RegisterModule('collected.easycart');
+		RegisterModule('kit.easycart');
 		return TRUE;
 	}
 
 	function InstallEvents()
 	{
-		RegisterModuleDependences('main', 'OnBeforeLocalRedirect', 'collected.easycart', 'CRSEasyCartMain', 'OnBeforeLocalRedirect');
+		RegisterModuleDependences('main', 'OnBeforeLocalRedirect', 'kit.easycart', 'CRSEasyCartMain', 'OnBeforeLocalRedirect');
 		return TRUE;
 	}
 
 	function InstallOptions()
 	{
-		COption::SetOptionString('collected.easycart', 'service_url', '/personal/' );
+		COption::SetOptionString('kit.easycart', 'service_url', '/personal/' );
 		return TRUE;
 	}
 
 	function InstallFiles()
 	{
-		CopyDirFiles($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/collected.easycart/install/components', $_SERVER['DOCUMENT_ROOT'].'/bitrix/components', true, true);
-		CopyDirFiles($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/collected.easycart/install/templates', $_SERVER['DOCUMENT_ROOT'].'/bitrix/templates', true, true);
+		CopyDirFiles($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/kit.easycart/install/components', $_SERVER['DOCUMENT_ROOT'].'/bitrix/components', true, true);
+		CopyDirFiles($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/kit.easycart/install/templates', $_SERVER['DOCUMENT_ROOT'].'/bitrix/templates', true, true);
 		return TRUE;
 	}
 
@@ -70,19 +70,19 @@ Class collected_easycart extends CModule
 	function UnInstallDB()
 	{
 		global $DB, $DBType, $APPLICATION;
-		UnRegisterModule('collected.easycart');
+		UnRegisterModule('kit.easycart');
 		return TRUE;
 	}
 
 	function UnInstallEvents()
 	{
-		UnRegisterModuleDependences('main', 'OnBeforeLocalRedirect', 'collected.easycart', 'CRSEasyCartMain', 'OnBeforeLocalRedirect');
+		UnRegisterModuleDependences('main', 'OnBeforeLocalRedirect', 'kit.easycart', 'CRSEasyCartMain', 'OnBeforeLocalRedirect');
 		return TRUE;
 	}
 
 	function UnInstallOptions()
 	{
-		COption::RemoveOption('collected.easycart');
+		COption::RemoveOption('kit.easycart');
 		return TRUE;
 	}
 
@@ -104,7 +104,7 @@ Class collected_easycart extends CModule
 		$keyGoodOptions = $this->InstallOptions();
 		$keyGoodFiles = $this->InstallFiles();
 		$keyGoodPublic = $this->InstallPublic();
-		$APPLICATION->IncludeAdminFile(GetMessage('SPER_INSTALL_TITLE'), $_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/collected.easycart/install/install.php');
+		$APPLICATION->IncludeAdminFile(GetMessage('SPER_INSTALL_TITLE'), $_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/kit.easycart/install/install.php');
     }
 
     function DoUninstall()
@@ -115,6 +115,6 @@ Class collected_easycart extends CModule
 		$keyGoodOptions = $this->UnInstallOptions();
 		$keyGoodDB = $this->UnInstallDB();
 		$keyGoodPublic = $this->UnInstallPublic();
-		$APPLICATION->IncludeAdminFile(GetMessage('SPER_UNINSTALL_TITLE'), $_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/collected.easycart/install/uninstall.php');
+		$APPLICATION->IncludeAdminFile(GetMessage('SPER_UNINSTALL_TITLE'), $_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/kit.easycart/install/uninstall.php');
     }
 }

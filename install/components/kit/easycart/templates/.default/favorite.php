@@ -9,7 +9,7 @@ if($_REQUEST['rsec_ajax_post']=='Y' && $_REQUEST['rsec_mode']=='favorite')
 
 global $rsecFavoriteFilterGo;
 ?><?$APPLICATION->IncludeComponent(
-	"collected:favorite.list",
+	"kit:favorite.list",
 	"rs_easycart", 
 	array(
 		"CACHE_TYPE" => "A",
